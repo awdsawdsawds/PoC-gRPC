@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package foobar;
+
+service FooBar {
+  rpc GetMessage(FooRequest) returns (BarReponse) {}
+  rpc GetMessageInterval(FooRequest) returns (stream BarReponse) {}
+  rpc GetMessageConcat(stream FooRequest) returns (BarReponse) {}
+  rpc getMessageTwoWay(stream FooRequest) returns (stream BarReponse) {}
+}
+
+message FooRequest {
+  string message = 1;
+}
+
+message BarReponse {
+  string message = 1;
+}
